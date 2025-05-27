@@ -79,7 +79,7 @@ EOF
       PUB_KEY=$(tr -d '\\n' < /vagrant/gitlab_id_ed25519.pub)
       gitlab-rails runner "u = User.find_by(username: 'root'); if u; u.keys.create!(title: 'root-key', key: '$PUB_KEY'); else; puts 'Utilisateur root introuvable'; end"
     else
-      echo "⚠️  Clé publique non trouvée : /vagrant/gitlab_id_ed25519.pub"
+      echo " Clé publique non trouvée : /vagrant/gitlab_id_ed25519.pub"
     fi
 
     echo "==> GitLab est prêt : https://${IP}"
